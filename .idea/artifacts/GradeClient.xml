@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="GradeClient">
+    <output-path>$PROJECT_DIR$/out/artifacts/GradeClient</output-path>
+    <root id="archive" name="GradeClient.jar">
+      <element id="module-output" name="GradeClient" />
+    </root>
+  </artifact>
+</component>
