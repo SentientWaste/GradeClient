@@ -1,2 +1,1 @@
-# GradeClient
-## The best minecraft hack client
+# Grade Minecraft Hack Client
