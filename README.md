@@ -1,6 +1,4 @@
-<div align="Center">
-  # Grade Minecraft Hack Client
-</div>
+# Grade Minecraft Hack Client
 
 ## 作者与自介
 <div align="Left">
