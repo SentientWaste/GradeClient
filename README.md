@@ -2,7 +2,7 @@
   # Grade Minecraft Hack Client
 </div>
 
-# 作者与自介
+## 作者与自介
 <div align="Left">
   
 | 作者 | XFREELY(泽托维尔克) |
@@ -13,9 +13,9 @@
 </div>
 
 
-# 感谢与鸣谢
+## 感谢与鸣谢
 [西路Baka](https://space.bilibili.com/1098028524/)
 提供代码帮助与困难解决。
 
-# 技术与开发
+## 技术与开发
 [泽托维尔克](https://space.bilibili.com/1403109864)
