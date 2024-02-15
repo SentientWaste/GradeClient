@@ -1,5 +1,6 @@
 package net.minecraft.client.gui;
 
+import Client.GLSL;
 import com.google.common.collect.Lists;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -28,7 +29,9 @@ import net.minecraft.world.storage.WorldInfo;
 import org.apache.commons.io.Charsets;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.lwjgl.Sys;
 import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL20;
 import org.lwjgl.opengl.GLContext;
 import org.lwjgl.util.glu.Project;
 
@@ -498,64 +501,80 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback
         tessellator.draw();
     }
 
+    private final long start = System.currentTimeMillis();
+
     /**
      * Draws the screen and all the components in it. Args : mouseX, mouseY, renderPartialTicks
      */
     public void drawScreen(int mouseX, int mouseY, float partialTicks)
     {
-        GlStateManager.disableAlpha();
-        this.renderSkybox(mouseX, mouseY, partialTicks);
-        GlStateManager.enableAlpha();
-        Tessellator tessellator = Tessellator.getInstance();
-        WorldRenderer worldrenderer = tessellator.getWorldRenderer();
-        int i = 274;
-        int j = this.width / 2 - i / 2;
-        int k = 30;
-        this.drawGradientRect(0, 0, this.width, this.height, -2130706433, 16777215);
-        this.drawGradientRect(0, 0, this.width, this.height, 0, Integer.MIN_VALUE);
-        this.mc.getTextureManager().bindTexture(minecraftTitleTextures);
-        GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+//        GlStateManager.disableAlpha();
+//        this.renderSkybox(mouseX, mouseY, partialTicks);
+//        GlStateManager.enableAlpha();
+//        Tessellator tessellator = Tessellator.getInstance();
+//        WorldRenderer worldrenderer = tessellator.getWorldRenderer();
+//        int i = 274;
+//        int j = this.width / 2 - i / 2;
+//        int k = 30;
+//        this.drawGradientRect(0, 0, this.width, this.height, -2130706433, 16777215);
+//        this.drawGradientRect(0, 0, this.width, this.height, 0, Integer.MIN_VALUE);
+//        this.mc.getTextureManager().bindTexture(minecraftTitleTextures);
+//        GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+//
+//        if ((double)this.updateCounter < 1.0E-4D)
+//        {
+//            this.drawTexturedModalRect(j + 0, k + 0, 0, 0, 99, 44);
+//            this.drawTexturedModalRect(j + 99, k + 0, 129, 0, 27, 44);
+//            this.drawTexturedModalRect(j + 99 + 26, k + 0, 126, 0, 3, 44);
+//            this.drawTexturedModalRect(j + 99 + 26 + 3, k + 0, 99, 0, 26, 44);
+//            this.drawTexturedModalRect(j + 155, k + 0, 0, 45, 155, 44);
+//        }
+//        else
+//        {
+//            this.drawTexturedModalRect(j + 0, k + 0, 0, 0, 155, 44);
+//            this.drawTexturedModalRect(j + 155, k + 0, 0, 45, 155, 44);
+//        }
+//
+//        GlStateManager.pushMatrix();
+//        GlStateManager.translate((float)(this.width / 2 + 90), 70.0F, 0.0F);
+//        GlStateManager.rotate(-20.0F, 0.0F, 0.0F, 1.0F);
+//        float f = 1.8F - MathHelper.abs(MathHelper.sin((float)(Minecraft.getSystemTime() % 1000L) / 1000.0F * (float)Math.PI * 2.0F) * 0.1F);
+//        f = f * 100.0F / (float)(this.fontRendererObj.getStringWidth(this.splashText) + 32);
+//        GlStateManager.scale(f, f, f);
+//        this.drawCenteredString(this.fontRendererObj, this.splashText, 0, -8, -256);
+//        GlStateManager.popMatrix();
+//        String s = "Minecraft 1.8.8";
+//
+//        if (this.mc.isDemo())
+//        {
+//            s = s + " Demo";
+//        }
+//
+//        this.drawString(this.fontRendererObj, s, 2, this.height - 10, -1);
+//        String s1 = "Copyright Mojang AB. Do not distribute!";
+//        this.drawString(this.fontRendererObj, s1, this.width - this.fontRendererObj.getStringWidth(s1) - 2, this.height - 10, -1);
+//
+//        if (this.openGLWarning1 != null && this.openGLWarning1.length() > 0)
+//        {
+//            drawRect(this.field_92022_t - 2, this.field_92021_u - 2, this.field_92020_v + 2, this.field_92019_w - 1, 1428160512);
+//            this.drawString(this.fontRendererObj, this.openGLWarning1, this.field_92022_t, this.field_92021_u, -1);
+//            this.drawString(this.fontRendererObj, this.openGLWarning2, (this.width - this.field_92024_r) / 2, ((GuiButton)this.buttonList.get(0)).yPosition - 12, -1);
+//        }
+        GLSL glsl = new GLSL("/shaders/noise");
+        GL20.glUseProgram(glsl.program);
+        GL20.glUniform1f(GL20.glGetUniformLocation(glsl.program, "time"), (System.currentTimeMillis() - start) / 1000f);
+        GL20.glUniform2f(GL20.glGetUniformLocation(glsl.program, "resolution"), width , height);
 
-        if ((double)this.updateCounter < 1.0E-4D)
-        {
-            this.drawTexturedModalRect(j + 0, k + 0, 0, 0, 99, 44);
-            this.drawTexturedModalRect(j + 99, k + 0, 129, 0, 27, 44);
-            this.drawTexturedModalRect(j + 99 + 26, k + 0, 126, 0, 3, 44);
-            this.drawTexturedModalRect(j + 99 + 26 + 3, k + 0, 99, 0, 26, 44);
-            this.drawTexturedModalRect(j + 155, k + 0, 0, 45, 155, 44);
-        }
-        else
-        {
-            this.drawTexturedModalRect(j + 0, k + 0, 0, 0, 155, 44);
-            this.drawTexturedModalRect(j + 155, k + 0, 0, 45, 155, 44);
-        }
+        GL11.glBegin(GL11.GL_QUADS);
 
-        GlStateManager.pushMatrix();
-        GlStateManager.translate((float)(this.width / 2 + 90), 70.0F, 0.0F);
-        GlStateManager.rotate(-20.0F, 0.0F, 0.0F, 1.0F);
-        float f = 1.8F - MathHelper.abs(MathHelper.sin((float)(Minecraft.getSystemTime() % 1000L) / 1000.0F * (float)Math.PI * 2.0F) * 0.1F);
-        f = f * 100.0F / (float)(this.fontRendererObj.getStringWidth(this.splashText) + 32);
-        GlStateManager.scale(f, f, f);
-        this.drawCenteredString(this.fontRendererObj, this.splashText, 0, -8, -256);
-        GlStateManager.popMatrix();
-        String s = "Minecraft 1.8.8";
+        GL11.glVertex2f(-1,-1);
+        GL11.glVertex2f(-1,1);
+        GL11.glVertex2f(1,1);
+        GL11.glVertex2f(1,-1);
 
-        if (this.mc.isDemo())
-        {
-            s = s + " Demo";
-        }
+        GL11.glEnd();
 
-        this.drawString(this.fontRendererObj, s, 2, this.height - 10, -1);
-        String s1 = "Copyright Mojang AB. Do not distribute!";
-        this.drawString(this.fontRendererObj, s1, this.width - this.fontRendererObj.getStringWidth(s1) - 2, this.height - 10, -1);
-
-        if (this.openGLWarning1 != null && this.openGLWarning1.length() > 0)
-        {
-            drawRect(this.field_92022_t - 2, this.field_92021_u - 2, this.field_92020_v + 2, this.field_92019_w - 1, 1428160512);
-            this.drawString(this.fontRendererObj, this.openGLWarning1, this.field_92022_t, this.field_92021_u, -1);
-            this.drawString(this.fontRendererObj, this.openGLWarning2, (this.width - this.field_92024_r) / 2, ((GuiButton)this.buttonList.get(0)).yPosition - 12, -1);
-        }
-
+        GL20.glUseProgram(0);
         super.drawScreen(mouseX, mouseY, partialTicks);
     }
 

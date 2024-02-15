@@ -30,12 +30,12 @@ public class KillAura extends Module {
     private List<Entity> targets = null;
     private Entity target = null;
     private long cpsTicker;
-    private final Numbers<Double> range = new Numbers<>("Range", 3.0, 8.0, 0.1, 4.2);
+    private final Numbers<Double> range = new Numbers<>("Range", 3.0, 5.0, 0.1, 3.4);
     private final Booleans<Boolean> autoBlock = new Booleans<>("AutoBlock", false);
     private final Mode<String> priority = new Mode<>("Priority", new String[]{"Distance", "Health"}, "Distance");
     public KillAura() {
         super("KillAura", Keyboard.KEY_R, Category.Combat);
-        this.addValues(this.priority, this.range, this.autoBlock);
+        this.addValues(this.priority,this.range , this.autoBlock);
     }
 
     @Override
@@ -98,7 +98,7 @@ public class KillAura extends Module {
     }
 
     private boolean shouldAttack() {
-        return System.currentTimeMillis() - this.cpsTicker >= 1000 / 10.0;//10.0为cps
+        return System.currentTimeMillis() - this.cpsTicker >= 1000 / 12.0;//10.0为cps
     }
 
     private boolean isTarget(Entity target) {

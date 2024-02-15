@@ -2,12 +2,11 @@ package net.minecraft.client.gui;
 
 import java.io.IOException;
 
-import net.minecraft.client.main.Main;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.util.EnumChatFormatting;
-import Gui.MainMenuGui;
+import GuiFile.MainMenuGui;
 
 public class GuiGameOver extends GuiScreen implements GuiYesNoCallback
 {

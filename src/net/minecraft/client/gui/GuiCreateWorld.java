@@ -1,7 +1,11 @@
 package net.minecraft.client.gui;
 
+import java.awt.*;
 import java.io.IOException;
 import java.util.Random;
+
+import Client.GLSL;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.util.ChatAllowedCharacters;
 import net.minecraft.world.WorldSettings;
@@ -10,6 +14,8 @@ import net.minecraft.world.storage.ISaveFormat;
 import net.minecraft.world.storage.WorldInfo;
 import org.apache.commons.lang3.StringUtils;
 import org.lwjgl.input.Keyboard;
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL20;
 
 public class GuiCreateWorld extends GuiScreen
 {
@@ -446,42 +452,54 @@ public class GuiCreateWorld extends GuiScreen
     /**
      * Draws the screen and all the components in it. Args : mouseX, mouseY, renderPartialTicks
      */
+    private static final long start = System.currentTimeMillis();
     public void drawScreen(int mouseX, int mouseY, float partialTicks)
     {
-        this.drawDefaultBackground();
+        //绘制背景
+        GlStateManager.disableCull();
+        GlStateManager.pushMatrix();
+        GlStateManager.enableBlend();
+        GlStateManager.enableAlpha();
+        GlStateManager.color(1f, 1f, 1f, 1f);
+        GLSL glsl = new GLSL("/shaders/noise");
+        GL20.glUseProgram(glsl.program);
+        GL20.glUniform1f(GL20.glGetUniformLocation(glsl.program, "time"), (System.currentTimeMillis() - start) / 512f);
+        GL20.glUniform2f(GL20.glGetUniformLocation(glsl.program, "resolution"), width , height);
+        // Draw
+        GL11.glBegin(GL11.GL_QUADS);
+        GL11.glVertex2i(-1,-1);
+        GL11.glVertex2i(-1,1);
+        GL11.glVertex2i(1,1);
+        GL11.glVertex2i(1,-1);
+        GL11.glEnd();
+        GL20.glUseProgram(0);
+        GlStateManager.popMatrix();
         this.drawCenteredString(this.fontRendererObj, I18n.format("selectWorld.create", new Object[0]), this.width / 2, 20, -1);
 
-        if (this.field_146344_y)
-        {
-            this.drawString(this.fontRendererObj, I18n.format("selectWorld.enterSeed", new Object[0]), this.width / 2 - 100, 47, -6250336);
-            this.drawString(this.fontRendererObj, I18n.format("selectWorld.seedInfo", new Object[0]), this.width / 2 - 100, 85, -6250336);
+        if (this.field_146344_y) {
+            this.drawString(this.fontRendererObj, I18n.format("selectWorld.enterSeed", new Object[0]), this.width / 2 - 100, 47, -1);
+            this.drawString(this.fontRendererObj, I18n.format("selectWorld.seedInfo", new Object[0]), this.width / 2 - 100, 85, -1);
 
-            if (this.btnMapFeatures.visible)
-            {
-                this.drawString(this.fontRendererObj, I18n.format("selectWorld.mapFeatures.info", new Object[0]), this.width / 2 - 150, 122, -6250336);
+            if (this.btnMapFeatures.visible) {
+                this.drawString(this.fontRendererObj, I18n.format("selectWorld.mapFeatures.info", new Object[0]), this.width / 2 - 150, 122, -1);
             }
 
-            if (this.btnAllowCommands.visible)
-            {
-                this.drawString(this.fontRendererObj, I18n.format("selectWorld.allowCommands.info", new Object[0]), this.width / 2 - 150, 172, -6250336);
+            if (this.btnAllowCommands.visible) {
+                this.drawString(this.fontRendererObj, I18n.format("selectWorld.allowCommands.info", new Object[0]), this.width / 2 - 150, 172, -1);
             }
 
             this.field_146335_h.drawTextBox();
 
-            if (WorldType.worldTypes[this.selectedIndex].showWorldInfoNotice())
-            {
-                this.fontRendererObj.drawSplitString(I18n.format(WorldType.worldTypes[this.selectedIndex].func_151359_c(), new Object[0]), this.btnMapType.xPosition + 2, this.btnMapType.yPosition + 22, this.btnMapType.getButtonWidth(), 10526880);
+            if (WorldType.worldTypes[this.selectedIndex].showWorldInfoNotice()) {
+                this.fontRendererObj.drawSplitString(I18n.format(WorldType.worldTypes[this.selectedIndex].func_151359_c(), new Object[0]), this.btnMapType.xPosition + 2, this.btnMapType.yPosition + 22, this.btnMapType.getButtonWidth(), -1);
             }
-        }
-        else
-        {
-            this.drawString(this.fontRendererObj, I18n.format("selectWorld.enterName", new Object[0]), this.width / 2 - 100, 47, -6250336);
-            this.drawString(this.fontRendererObj, I18n.format("selectWorld.resultFolder", new Object[0]) + " " + this.field_146336_i, this.width / 2 - 100, 85, -6250336);
+        } else {
+            this.drawString(this.fontRendererObj, I18n.format("selectWorld.enterName", new Object[0]), this.width / 2 - 100, 47, -1);
+            this.drawString(this.fontRendererObj, I18n.format("selectWorld.resultFolder", new Object[0]) + " " + this.field_146336_i, this.width / 2 - 100, 85, -1);
             this.field_146333_g.drawTextBox();
-            this.drawString(this.fontRendererObj, this.field_146323_G, this.width / 2 - 100, 137, -6250336);
-            this.drawString(this.fontRendererObj, this.field_146328_H, this.width / 2 - 100, 149, -6250336);
+            this.drawString(this.fontRendererObj, this.field_146323_G, this.width / 2 - 100, 137, -1);
+            this.drawString(this.fontRendererObj, this.field_146328_H, this.width / 2 - 100, 149, -1);
         }
-
         super.drawScreen(mouseX, mouseY, partialTicks);
     }
 

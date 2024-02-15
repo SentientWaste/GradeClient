@@ -3,9 +3,8 @@ package net.minecraft.client.gui;
 import java.io.IOException;
 import net.minecraft.client.gui.achievement.GuiAchievements;
 import net.minecraft.client.gui.achievement.GuiStats;
-import net.minecraft.client.main.Main;
 import net.minecraft.client.multiplayer.WorldClient;
-import Gui.MainMenuGui;
+import GuiFile.MainMenuGui;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.realms.RealmsBridge;
 

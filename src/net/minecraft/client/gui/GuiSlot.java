@@ -218,14 +218,13 @@ public abstract class GuiSlot
             }
         }
     }
-
+    private static final long start = System.currentTimeMillis();
     public void drawScreen(int mouseXIn, int mouseYIn, float p_148128_3_)
     {
         if (this.field_178041_q)
         {
             this.mouseX = mouseXIn;
             this.mouseY = mouseYIn;
-            this.drawBackground();
             int i = this.getScrollBarX();
             int j = i + 6;
             this.bindAmountScrolled();

@@ -227,6 +227,7 @@ public class GuiSelectWorld extends GuiScreen implements GuiYesNoCallback
     /**
      * Draws the screen and all the components in it. Args : mouseX, mouseY, renderPartialTicks
      */
+    private static final long start = System.currentTimeMillis();
     public void drawScreen(int mouseX, int mouseY, float partialTicks)
     {
         this.field_146638_t.drawScreen(mouseX, mouseY, partialTicks);

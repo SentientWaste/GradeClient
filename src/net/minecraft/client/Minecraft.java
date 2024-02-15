@@ -3,7 +3,7 @@ package net.minecraft.client;
 import Client.Client;
 import Client.event.EventManager;
 import Client.event.events.EventKey;
-import Gui.MainMenuGui;
+import GuiFile.MainMenuGui;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
@@ -50,7 +50,6 @@ import net.minecraft.client.gui.GuiControls;
 import net.minecraft.client.gui.GuiGameOver;
 import net.minecraft.client.gui.GuiIngame;
 import net.minecraft.client.gui.GuiIngameMenu;
-import net.minecraft.client.gui.GuiMainMenu;
 import net.minecraft.client.gui.GuiMemoryErrorScreen;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.GuiSleepMP;
@@ -1127,9 +1126,11 @@ public class Minecraft implements IThreadListener, IPlayerUsage
 
         if (!this.skipRenderWorld)
         {
+            GlStateManager.pushMatrix();
             this.mcProfiler.endStartSection("gameRenderer");
             this.entityRenderer.func_181560_a(this.timer.renderPartialTicks, i);
             this.mcProfiler.endSection();
+            GlStateManager.popMatrix();
         }
 
         this.mcProfiler.endSection();
