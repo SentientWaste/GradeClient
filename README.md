@@ -1,4 +1,15 @@
-# Grade Minecraft Hack Client
+<div align="center">
+
+# Grade Minecrtaft Hack Client
+### 一个简单开源的基础我的世界外挂
+</div>
+<div align="center">
+
+![Downloads](https://img.shields.io/github/downloads/SentientWaste/GradeClient/total?logo=github&label=%E4%B8%8B%E8%BD%BD%E9%87%8F&style=for-the-badge&color=44cc11)
+![Star](https://img.shields.io/github/stars/SentientWaste/GradeClient?logo=github&label=Star&style=for-the-badge)
+![License](https://img.shields.io/github/license/SentientWaste/GradeClient?logo=github&label=开源协议&style=for-the-badge&color=ff7a35)
+
+</div>
 
 ## 作者与自介
 <div align="Left">
@@ -23,11 +34,7 @@
 * 点击`Edit Configuration`以设置启动配置。
 * 设置启动类为`Start`
 * 在VM参数中添加natives的目录`-Djava.library.path=versions\1.8.8\1.8.8-natives`
-  
 
 ## 感谢与鸣谢
-[西路Baka](https://space.bilibili.com/1098028524/)
-提供代码帮助与困难解决。
-
-## 技术与开发
-[泽托维尔克](https://space.bilibili.com/1403109864)
+* [西路Baka](https://space.bilibili.com/1098028524/)提供代码帮助与困难解决。
+* [vlouboos](https://github.com/vlouboos)提供代码帮助与困难解决。
