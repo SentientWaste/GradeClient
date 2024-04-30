@@ -1,14 +1,45 @@
-[22:56:58] [Client thread/INFO]: Setting user: Player406
-[22:56:58] [Client thread/INFO]: (Session ID is token:0:Player406)
-[22:56:59] [Client thread/INFO]: LWJGL Version: 2.9.4
-[22:56:59] [Client thread/INFO]: Reloading ResourceManager: Default, 新字体.zip
-[22:56:59] [Client thread/ERROR]: Couldn't initialize twitch stream
-[22:56:59] [Sound Library Loader/INFO]: Starting up SoundSystem...
-[22:56:59] [Thread-6/INFO]: Initializing LWJGL OpenAL
-[22:56:59] [Thread-6/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
-[22:56:59] [Thread-6/INFO]: OpenAL initialized.
-[22:57:00] [Sound Library Loader/INFO]: Sound engine started
-[22:57:00] [Client thread/INFO]: Created: 512x512 textures-atlas
-[22:57:21] [Client thread/INFO]: Stopping!
-[22:57:21] [Client thread/INFO]: SoundSystem shutting down...
-[22:57:21] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com
+[16:39:39] [Client thread/INFO]: Setting user: Player794
+[16:39:39] [Client thread/INFO]: (Session ID is token:0:Player794)
+[16:39:39] [Client thread/INFO]: LWJGL Version: 2.9.4
+[16:39:40] [Client thread/INFO]: Reloading ResourceManager: Default
+[16:39:40] [Client thread/ERROR]: Couldn't initialize twitch stream
+[16:39:40] [Sound Library Loader/INFO]: Starting up SoundSystem...
+[16:39:40] [Thread-6/INFO]: Initializing LWJGL OpenAL
+[16:39:40] [Thread-6/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[16:39:40] [Thread-6/INFO]: OpenAL initialized.
+[16:39:40] [Sound Library Loader/INFO]: Sound engine started
+[16:39:42] [Client thread/INFO]: Created: 512x512 textures-atlas
+[16:39:42] [Client thread/WARN]: Failed to load shader: minecraft:resource/Client/shaders/post/entity_outline.json
+net.minecraft.client.util.JsonException: Invalid resource/Client/shaders/post/entity_outline.json: File not found
+	at net.minecraft.client.util.JsonException.func_151379_a(JsonException.java:58) ~[GradeClient/:?]
+	at net.minecraft.client.shader.ShaderGroup.parseGroup(ShaderGroup.java:111) ~[GradeClient/:?]
+	at net.minecraft.client.shader.ShaderGroup.<init>(ShaderGroup.java:51) ~[GradeClient/:?]
+	at net.minecraft.client.renderer.RenderGlobal.makeEntityOutlineShader(RenderGlobal.java:232) [GradeClient/:?]
+	at net.minecraft.client.Minecraft.startGame(Minecraft.java:600) [GradeClient/:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:401) [GradeClient/:?]
+	at net.minecraft.client.main.Main.main(Main.java:114) [GradeClient/:?]
+	at Start.main(Start.java:15) [GradeClient/:?]
+Caused by: java.io.FileNotFoundException: minecraft:resource/Client/shaders/post/entity_outline.json
+	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:64) ~[GradeClient/:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:61) ~[GradeClient/:?]
+	at net.minecraft.client.shader.ShaderGroup.parseGroup(ShaderGroup.java:61) ~[GradeClient/:?]
+	... 6 more
+[16:39:44] [Server thread/INFO]: Starting integrated minecraft server version 1.8.8
+[16:39:44] [Server thread/INFO]: Generating keypair
+[16:39:44] [Server thread/INFO]: Preparing start region for level 0
+[16:39:44] [Server thread/INFO]: Changing view distance to 8, from 10
+[16:39:45] [Server thread/INFO]: Player794[local:E:5109e13c] logged in with entity id 13 at (327.9673710402151, 70.0, 401.7280163331221)
+[16:39:45] [Server thread/INFO]: Player794 joined the game
+[16:39:59] [Server thread/INFO]: Saving and pausing game...
+[16:39:59] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
+[16:39:59] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
+[16:39:59] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
+[16:40:00] [Server thread/INFO]: Stopping server
+[16:40:00] [Server thread/INFO]: Saving players
+[16:40:00] [Server thread/INFO]: Saving worlds
+[16:40:00] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
+[16:40:00] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
+[16:40:00] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
+[16:40:00] [Client thread/INFO]: Stopping!
+[16:40:00] [Client thread/INFO]: SoundSystem shutting down...
+[16:40:01] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com
