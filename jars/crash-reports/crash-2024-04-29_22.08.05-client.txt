@@ -1,0 +1,80 @@
+---- Minecraft Crash Report ----
+// Hi. I'm Minecraft, and I'm a crashaholic.
+
+Time: 24-4-29 下午10:08
+Description: Updating screen events
+
+java.lang.NullPointerException: Updating screen events
+	at Client.ClickGui.ClickGui.mouseReleased(ClickGui.java:102)
+	at net.minecraft.client.gui.GuiScreen.handleMouseInput(GuiScreen.java:607)
+	at net.minecraft.client.gui.GuiScreen.handleInput(GuiScreen.java:566)
+	at net.minecraft.client.Minecraft.runTick(Minecraft.java:1786)
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1111)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:421)
+	at net.minecraft.client.main.Main.main(Main.java:114)
+	at Start.main(Start.java:15)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Stacktrace:
+	at Client.ClickGui.ClickGui.mouseReleased(ClickGui.java:102)
+	at net.minecraft.client.gui.GuiScreen.handleMouseInput(GuiScreen.java:607)
+	at net.minecraft.client.gui.GuiScreen.handleInput(GuiScreen.java:566)
+
+-- Affected screen --
+Details:
+	Screen name: Client.ClickGui.ClickGui
+
+-- Affected level --
+Details:
+	Level name: MpServer
+	All players: 1 total; [EntityPlayerSP['Player450'/14, l='MpServer', x=297.50, y=70.00, z=397.40]]
+	Chunk stats: MultiplayerChunkCache: 240, 240
+	Level seed: 0
+	Level generator: ID 02 - largeBiomes, ver 0. Features enabled: false
+	Level generator options: 
+	Level spawn location: 584.00,64.00,166.00 - World: (584,64,166), Chunk: (at 8,4,6 in 36,10; contains blocks 576,0,160 to 591,255,175), Region: (1,0; contains chunks 32,0 to 63,31, blocks 512,0,0 to 1023,255,511)
+	Level time: 111363 game time, 88109 day time
+	Level dimension: 0
+	Level storage version: 0x00000 - Unknown?
+	Level weather: Rain time: 0 (now: false), thunder time: 0 (now: false)
+	Level game mode: Game mode: creative (ID 1). Hardcore: false. Cheats: false
+	Forced entities: 39 total; [EntityBat['蝙蝠'/70, l='MpServer', x=293.95, y=53.16, z=410.17], EntityWitch['女巫'/71, l='MpServer', x=302.06, y=70.00, z=400.63], EntitySkeleton['骷髅'/72, l='MpServer', x=291.81, y=43.00, z=419.28], EntityZombie['僵尸'/73, l='MpServer', x=292.94, y=34.00, z=457.53], EntitySkeleton['骷髅'/74, l='MpServer', x=291.03, y=26.00, z=476.31], EntityCreeper['爬行者'/82, l='MpServer', x=318.41, y=17.00, z=355.66], EntityZombie['僵尸'/83, l='MpServer', x=306.03, y=48.00, z=423.53], EntityZombie['僵尸'/84, l='MpServer', x=313.50, y=42.00, z=468.50], EntitySkeleton['骷髅'/85, l='MpServer', x=306.50, y=42.00, z=469.50], EntityCreeper['爬行者'/86, l='MpServer', x=316.19, y=67.00, z=475.72], EntitySpider['蜘蛛'/92, l='MpServer', x=328.50, y=75.00, z=318.50], EntityCreeper['爬行者'/93, l='MpServer', x=321.41, y=17.00, z=353.94], EntityZombie['僵尸'/94, l='MpServer', x=320.31, y=70.00, z=410.78], EntityZombie['僵尸'/95, l='MpServer', x=321.81, y=70.00, z=408.13], EntitySkeleton['骷髅'/98, l='MpServer', x=348.38, y=53.00, z=409.69], EntityCreeper['爬行者'/99, l='MpServer', x=346.75, y=54.00, z=407.88], EntityCreeper['爬行者'/100, l='MpServer', x=358.00, y=31.00, z=370.31], EntityCreeper['爬行者'/36, l='MpServer', x=228.84, y=65.00, z=341.38], EntitySkeleton['骷髅'/101, l='MpServer', x=363.66, y=42.00, z=394.84], EntityCreeper['爬行者'/37, l='MpServer', x=229.63, y=65.00, z=340.44], EntitySkeleton['骷髅'/102, l='MpServer', x=363.69, y=41.00, z=393.78], EntityBat['蝙蝠'/38, l='MpServer', x=233.09, y=45.63, z=380.19], EntityZombie['僵尸'/103, l='MpServer', x=350.81, y=39.00, z=386.44], EntitySkeleton['骷髅'/39, l='MpServer', x=224.47, y=53.00, z=446.84], EntityCreeper['爬行者'/104, l='MpServer', x=363.28, y=54.00, z=423.50], EntityEnderman['末影人'/40, l='MpServer', x=224.69, y=53.00, z=459.94], EntitySkeleton['骷髅'/43, l='MpServer', x=255.91, y=11.00, z=336.41], EntityEnderman['末影人'/107, l='MpServer', x=376.19, y=38.00, z=377.28], EntityCreeper['爬行者'/44, l='MpServer', x=255.22, y=16.00, z=364.19], EntityPlayerSP['Player450'/14, l='MpServer', x=297.50, y=70.00, z=397.40], EntitySpider['蜘蛛'/46, l='MpServer', x=253.28, y=47.00, z=379.69], EntityZombie['僵尸'/47, l='MpServer', x=264.84, y=55.00, z=432.56], EntityBat['蝙蝠'/48, l='MpServer', x=272.81, y=43.09, z=451.38], EntitySkeleton['骷髅'/52, l='MpServer', x=276.09, y=74.00, z=384.56], EntitySkeleton['骷髅'/53, l='MpServer', x=272.50, y=74.00, z=387.81], EntityZombie['僵尸'/54, l='MpServer', x=273.91, y=50.00, z=432.56], EntityZombie['僵尸'/55, l='MpServer', x=281.81, y=50.00, z=452.50], EntityWitch['女巫'/56, l='MpServer', x=286.88, y=28.00, z=477.47], EntityWitch['女巫'/57, l='MpServer', x=282.44, y=30.00, z=470.81]]
+	Retry entities: 0 total; []
+	Server brand: vanilla
+	Server type: Integrated singleplayer server
+Stacktrace:
+	at net.minecraft.client.multiplayer.WorldClient.addWorldInfoToCrashReport(WorldClient.java:380)
+	at net.minecraft.client.Minecraft.addGraphicsAndWorldToCrashReport(Minecraft.java:2757)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:442)
+	at net.minecraft.client.main.Main.main(Main.java:114)
+	at Start.main(Start.java:15)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.8.8
+	Operating System: Windows 11 (x86) version 10.0
+	Java Version: 1.8.0_401, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) Client VM (mixed mode, sharing), Oracle Corporation
+	Memory: 79417464 bytes (75 MB) / 259522560 bytes (247 MB) up to 259522560 bytes (247 MB)
+	JVM Flags: 0 total; 
+	IntCache: cache: 0, tcache: 0, allocated: 13, tallocated: 99
+	Launched Version: mcp
+	LWJGL: 2.9.4
+	OpenGL: NVIDIA GeForce RTX 4090/PCIe/SSE2 GL version 4.6.0 NVIDIA 551.52, NVIDIA Corporation
+	GL Caps: Using GL 1.3 multitexturing.
+Using GL 1.3 texture combiners.
+Using framebuffer objects because OpenGL 3.0 is supported and separate blending is supported.
+Shaders are available because OpenGL 2.1 is supported.
+VBOs are available because OpenGL 1.5 is supported.
+
+	Using VBOs: No
+	Is Modded: Very likely; Jar signature invalidated
+	Type: Client (map_client.txt)
+	Resource Packs: 
+	Current Language: 简体中文 (中国)
+	Profiler Position: N/A (disabled)
+	CPU: 32x Intel(R) Core(TM) i9-14900K

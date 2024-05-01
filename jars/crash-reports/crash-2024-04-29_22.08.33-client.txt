@@ -1,0 +1,80 @@
+---- Minecraft Crash Report ----
+// Hi. I'm Minecraft, and I'm a crashaholic.
+
+Time: 24-4-29 下午10:08
+Description: Updating screen events
+
+java.lang.NullPointerException: Updating screen events
+	at Client.ClickGui.ClickGui.mouseReleased(ClickGui.java:102)
+	at net.minecraft.client.gui.GuiScreen.handleMouseInput(GuiScreen.java:607)
+	at net.minecraft.client.gui.GuiScreen.handleInput(GuiScreen.java:566)
+	at net.minecraft.client.Minecraft.runTick(Minecraft.java:1786)
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1111)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:421)
+	at net.minecraft.client.main.Main.main(Main.java:114)
+	at Start.main(Start.java:15)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Stacktrace:
+	at Client.ClickGui.ClickGui.mouseReleased(ClickGui.java:102)
+	at net.minecraft.client.gui.GuiScreen.handleMouseInput(GuiScreen.java:607)
+	at net.minecraft.client.gui.GuiScreen.handleInput(GuiScreen.java:566)
+
+-- Affected screen --
+Details:
+	Screen name: Client.ClickGui.ClickGui
+
+-- Affected level --
+Details:
+	Level name: MpServer
+	All players: 1 total; [EntityPlayerSP['Player26'/13, l='MpServer', x=297.50, y=70.00, z=397.40]]
+	Chunk stats: MultiplayerChunkCache: 10, 10
+	Level seed: 0
+	Level generator: ID 02 - largeBiomes, ver 0. Features enabled: false
+	Level generator options: 
+	Level spawn location: 584.00,64.00,166.00 - World: (584,64,166), Chunk: (at 8,4,6 in 36,10; contains blocks 576,0,160 to 591,255,175), Region: (1,0; contains chunks 32,0 to 63,31, blocks 512,0,0 to 1023,255,511)
+	Level time: 111371 game time, 88117 day time
+	Level dimension: 0
+	Level storage version: 0x00000 - Unknown?
+	Level weather: Rain time: 0 (now: false), thunder time: 0 (now: false)
+	Level game mode: Game mode: creative (ID 1). Hardcore: false. Cheats: false
+	Forced entities: 5 total; [EntitySkeleton['骷髅'/50, l='MpServer', x=276.09, y=74.00, z=384.56], EntitySkeleton['骷髅'/51, l='MpServer', x=272.50, y=74.00, z=387.81], EntityBat['蝙蝠'/69, l='MpServer', x=293.56, y=53.06, z=410.56], EntityWitch['女巫'/70, l='MpServer', x=302.06, y=70.00, z=400.63], EntityPlayerSP['Player26'/13, l='MpServer', x=297.50, y=70.00, z=397.40]]
+	Retry entities: 0 total; []
+	Server brand: vanilla
+	Server type: Integrated singleplayer server
+Stacktrace:
+	at net.minecraft.client.multiplayer.WorldClient.addWorldInfoToCrashReport(WorldClient.java:380)
+	at net.minecraft.client.Minecraft.addGraphicsAndWorldToCrashReport(Minecraft.java:2757)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:442)
+	at net.minecraft.client.main.Main.main(Main.java:114)
+	at Start.main(Start.java:15)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.8.8
+	Operating System: Windows 11 (x86) version 10.0
+	Java Version: 1.8.0_401, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) Client VM (mixed mode, sharing), Oracle Corporation
+	Memory: 75852184 bytes (72 MB) / 259522560 bytes (247 MB) up to 259522560 bytes (247 MB)
+	JVM Flags: 0 total; 
+	IntCache: cache: 0, tcache: 0, allocated: 13, tallocated: 99
+	Launched Version: mcp
+	LWJGL: 2.9.4
+	OpenGL: NVIDIA GeForce RTX 4090/PCIe/SSE2 GL version 4.6.0 NVIDIA 551.52, NVIDIA Corporation
+	GL Caps: Using GL 1.3 multitexturing.
+Using GL 1.3 texture combiners.
+Using framebuffer objects because OpenGL 3.0 is supported and separate blending is supported.
+Shaders are available because OpenGL 2.1 is supported.
+VBOs are available because OpenGL 1.5 is supported.
+
+	Using VBOs: No
+	Is Modded: Very likely; Jar signature invalidated
+	Type: Client (map_client.txt)
+	Resource Packs: 
+	Current Language: 简体中文 (中国)
+	Profiler Position: N/A (disabled)
+	CPU: 32x Intel(R) Core(TM) i9-14900K

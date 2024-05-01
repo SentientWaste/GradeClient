@@ -1,10 +1,6 @@
 package de.Hero.clickgui.util;
 
-import Client.util.RenderUtil;
-import net.minecraft.client.renderer.entity.Render;
-
 import java.awt.Color;
-import java.util.Arrays;
 
 /**
  *  Made by HeroCode
@@ -15,6 +11,6 @@ import java.util.Arrays;
  */
 public class ColorUtil {
 	public static Color getClickGUIColor(){
-		return new Color(180, 0, 255);
+		return new Color(40, 40, 40);
 	}
 }

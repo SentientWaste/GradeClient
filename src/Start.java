@@ -8,6 +8,10 @@ public class Start
 {
     public static void main(String[] args)
     {
+
+        System.out.println(System.getProperty("java.library.path"));
+
+
         Main.main(concat(new String[] {"--version", "mcp", "--accessToken", "0", "--assetsDir", "assets", "--assetIndex", "1.8", "--userProperties", "{}"}, args));
     }
 

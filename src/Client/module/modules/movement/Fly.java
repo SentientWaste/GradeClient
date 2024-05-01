@@ -11,6 +11,7 @@ import net.minecraft.potion.Potion;
 import net.minecraft.util.ChatComponentText;
 import org.lwjgl.input.Keyboard;
 
+
 public class Fly extends Module {
     private final Mode<String> mode = new Mode<>("Mode", new String[]{"Vanilla", "Float", "Glide", "Motion"}, "Glide");
     private final Numbers<Double> speed = new Numbers<>("MotionSpeed", 0.5, 5.0, 0.5, 1.0);

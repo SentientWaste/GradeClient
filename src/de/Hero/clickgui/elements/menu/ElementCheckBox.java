@@ -2,6 +2,7 @@ package de.Hero.clickgui.elements.menu;
 
 import java.awt.Color;
 
+import Client.util.Render.RenderUtil;
 import Client.values.Booleans;
 import Client.values.Value;
 import net.minecraft.client.gui.Gui;
@@ -33,19 +34,22 @@ public class ElementCheckBox extends Element {
 	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
 		Color temp = ColorUtil.getClickGUIColor();
 		int color = new Color(temp.getRed(), temp.getGreen(), temp.getBlue(), 200).getRGB();
-		
+
 		/*
 		 * Die Box und Umrandung rendern
 		 */
+//		Gui.drawRect(x, y, x + width, y + height, (Boolean)set.getValue() ? color : 0xff000000);
+		//背景
 		Gui.drawRect(x, y, x + width, y + height, 0xff1a1a1a);
 
 		/*
 		 * Titel und Checkbox rendern.
 		 */
 		FontUtil.drawString(setstrg, x + width - FontUtil.getStringWidth(setstrg), y + FontUtil.getFontHeight() / 2 - 0.5, 0xffffffff);
-		Gui.drawRect(x + 1, y + 2, x + 12, y + 13, (Boolean)set.getValue() ? color : 0xff000000);
+		RenderUtil.drawRoundedRect((int)x + 3, (int)y + 2, (int)x + 13, (int)y + 11, 3, (Boolean)set.getValue() ? color : 0xff000000);
+//		Gui.drawRect(x + 1, y + 2, x + 12, y + 13, (Boolean)set.getValue() ? color : 0xff000000);
 		if (isCheckHovered(mouseX, mouseY))
-			Gui.drawRect(x + 1, y + 2, x + 12, y + 13, 0x55111111);
+			RenderUtil.drawRoundedRect((int)x + 3, (int)y + 2, (int)x + 14, (int)y + 11, 3, 0x55111111);
 	}
 
 	/*

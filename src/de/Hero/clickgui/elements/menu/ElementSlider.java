@@ -2,6 +2,7 @@ package de.Hero.clickgui.elements.menu;
 
 import java.awt.Color;
 
+import Client.util.Render.RenderUtil;
 import Client.values.Numbers;
 import Client.values.Value;
 import net.minecraft.client.gui.Gui;
@@ -49,7 +50,7 @@ public class ElementSlider extends Element {
 		 * Die Box und Umrandung rendern
 		 */
 		Gui.drawRect(x, y, x + width, y + height, 0xff1a1a1a);
-
+//
 		/*
 		 * Den Text rendern
 		 */
@@ -59,11 +60,13 @@ public class ElementSlider extends Element {
 		/*
 		 * Den Slider rendern
 		 */
-		Gui.drawRect(x, y + 12, x + width, y + 13.5, 0xff101010);
-		Gui.drawRect(x, y + 12, x + (percentBar * width), y + 13.5, color);
-		
-		if(percentBar > 0 && percentBar < 1)
-		Gui.drawRect(x + (percentBar * width)-1, y + 12, x + Math.min((percentBar * width), width), y + 13.5, color2);
+		RenderUtil.drawRoundedRect((int)x + 2, (int)y + 12, (int)x + (int) width - 2, (int)y + 14, 3, 0xff101010);
+//		Gui.drawRect(x, y + 12, x + width, y + 13.5, 0xff101010);
+		RenderUtil.drawRoundedRect((int)x + 2, (int)y + 12, (int)x + (int)(percentBar * width), (int)y + 14, 3, color);
+//		Gui.drawRect(x, y + 12, x + (percentBar * width), y + 13.5, color);
+//
+//		if(percentBar > 0 && percentBar < 1)
+//			Gui.drawRect(x + (percentBar * width)-1, y + 12, x + Math.min((percentBar * width), width), y + 13.5, color2);
 		
 
 		/*

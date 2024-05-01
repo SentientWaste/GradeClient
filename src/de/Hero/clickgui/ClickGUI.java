@@ -8,16 +8,11 @@ import java.util.Collections;
 import Client.Client;
 import Client.module.Category;
 import Client.module.Module;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
-
-import org.lwjgl.input.Keyboard;
-import org.lwjgl.opengl.GL11;
 
 import de.Hero.clickgui.elements.Element;
 import de.Hero.clickgui.elements.ModuleButton;
@@ -96,7 +91,7 @@ public class ClickGUI extends GuiScreen {
 		/*
 		 * Panels und damit auch Buttons rendern.
 		 * panels wird NUR hier im Code verwendet, da das
-		 * zuletzt gerenderte Panel ganz oben ist 
+		 * zuletzt gerenderte Panel ganz oben ist
 		 * Auch wenn es manchmal egal w�re ob panels/rpanels
 		 * benutzt wird habe ich mich einfach mal dazu entschieden,
 		 * einfach weil es einfacher ist nur einmal panels zu benutzen
@@ -105,37 +100,6 @@ public class ClickGUI extends GuiScreen {
 			p.drawScreen(mouseX, mouseY, partialTicks);
 		}
 
-		
-		/*															*/ ScaledResolution s = new ScaledResolution(mc);
-  		/* DO NOT REMOVE											*/ GL11.glPushMatrix();
-		/* copyright HeroCode 2017									*/ GL11.glTranslated(s.getScaledWidth(), s.getScaledHeight(), 0);GL11.glScaled(0.5, 0.5, 0.5);
-		/* https://www.youtube.com/channel/UCJum3PIbnYvIfIEu05GL_yQ	*/ FontUtil.drawStringWithShadow("b"+"y"+ "H"+"e"+"r"+"o"+"C"+"o"+"d"+"e", -Minecraft.getMinecraft().fontRendererObj.getStringWidth("b"+"y"+ "H"+"e"+"r"+"o"+"C"+"o"+"d"+"e"), -Minecraft.getMinecraft().fontRendererObj.FONT_HEIGHT, 0xff11F86B);
-		/*															*/ GL11.glPopMatrix();
-		
-		mb = null;
-		/*
-		 * �berpr�fen ob ein Button listening == true hat, wenn
-		 * ja, dann soll nicht mehr gesucht werden, nicht dass 
-		 * 1+ auf listening steht...
-		 */
-		listen:
-		for (Panel p : panels) {
-			if (p != null && p.visible && p.extended && p.Elements != null
-					&& p.Elements.size() > 0) {
-				for (ModuleButton e : p.Elements) {
-					if (e.listening) {
-						mb = e;
-						break listen;
-					}
-				}
-			}
-		}
-		
-		/*
-		 * Settings rendern. Da Settings �ber alles gerendert werden soll,
-		 * abgesehen vom ListeningOverlay werden die Elements von hier aus
-		 * fast am Schluss gerendert
-		 */
 		for (Panel panel : panels) {
 			if (panel.extended && panel.visible && panel.Elements != null) {
 				for (ModuleButton b : panel.Elements) {
@@ -156,29 +120,6 @@ public class ClickGUI extends GuiScreen {
 			}
 
 		}
-		
-		/*
-		 * Wenn mb != null ist => ein Button listening == true
-		 * dann wird das Overlay gerendert mit ein paar Informationen.
-		 */
-		if(mb != null){
-			drawRect(0, 0, this.width, this.height, 0x88101010);
-			GL11.glPushMatrix();
-			GL11.glTranslatef(s.getScaledWidth() / 2, s.getScaledHeight() / 2, 0.0F);
-			GL11.glScalef(4.0F, 4.0F, 0F);
-			FontUtil.drawTotalCenteredStringWithShadow("Listening...", 0, -10, 0xffffffff);
-			GL11.glScalef(0.5F, 0.5F, 0F);
-			FontUtil.drawTotalCenteredStringWithShadow("Press 'ESCAPE' to unbind " + mb.mod.getName() + (mb.mod.getKey() > -1 ? " (" + Keyboard.getKeyName(mb.mod.getKey())+ ")" : ""), 0, 0, 0xffffffff);
-			GL11.glScalef(0.25F, 0.25F, 0F);
-			FontUtil.drawTotalCenteredStringWithShadow("by HeroCode", 0, 20, 0xffffffff);
-			GL11.glPopMatrix();
-		}
-		
-		/*
-		 * Nicht ben�tigt, aber es ist so einfach sauberer ;)
-		 * Und ohne diesen call k�nnen keine GUIButtons/andere Elemente
-		 * gerendert werden
-		 */
 		super.drawScreen(mouseX, mouseY, partialTicks);
 	}
 
@@ -189,7 +130,7 @@ public class ClickGUI extends GuiScreen {
 		 * wenn er schon aktiviert ist
 		 */
 		if(mb != null)return;
-		
+
 		/*
 		 * Ben�tigt damit auch mit Elements interagiert werden kann
 		 * besonders zu beachten ist dabei, dass zum einen rpanels aufgerufen
@@ -223,7 +164,7 @@ public class ClickGUI extends GuiScreen {
 			if (p.mouseClicked(mouseX, mouseY, mouseButton))
 				return;
 		}
-		
+
 		/*
 		 * Nicht ben�tigt, aber es ist so einfach sauberer ;)
 		 */
@@ -241,7 +182,7 @@ public class ClickGUI extends GuiScreen {
 		 * wenn er schon aktiviert ist
 		 */
 		if(mb != null)return;
-		
+
 		/*
 		 * Eigentlich nur f�r die Slider ben�tigt, aber
 		 * durch diesen Call erf�hrt jedes Element, wenn
@@ -258,7 +199,7 @@ public class ClickGUI extends GuiScreen {
 				}
 			}
 		}
-		
+
 		/*
 		 * Ben�tigt damit Slider auch losgelassen werden k�nnen und nicht
 		 * immer an der Maus 'festkleben' :>
@@ -266,7 +207,7 @@ public class ClickGUI extends GuiScreen {
 		for (Panel p : rpanels) {
 			p.mouseReleased(mouseX, mouseY, state);
 		}
-		
+
 		/*
 		 * Nicht ben�tigt, aber es ist so einfach sauberer ;)
 		 */
@@ -291,7 +232,7 @@ public class ClickGUI extends GuiScreen {
 		}
 
 		/*
-		 * keyTyped in GuiScreen MUSS aufgerufen werden, damit 
+		 * keyTyped in GuiScreen MUSS aufgerufen werden, damit
 		 * man mit z.B. ESCAPE aus dem GUI gehen kann
 		 */
 		try {
@@ -310,14 +251,14 @@ public class ClickGUI extends GuiScreen {
 			if (mc.entityRenderer.theShaderGroup != null) {
 				mc.entityRenderer.theShaderGroup.deleteShaderGroup();
 			}
-			mc.entityRenderer.loadShader(new ResourceLocation("shaders/post/blur.json"));
+			mc.entityRenderer.loadShader(new ResourceLocation("resource/Client/shaders/post/blur.json"));
 		}
 	}
 
 	@Override
 	public void onGuiClosed() {
 		/*
-		 * End blur 
+		 * End blur
 		 */
 		if (mc.entityRenderer.theShaderGroup != null) {
 			mc.entityRenderer.theShaderGroup.deleteShaderGroup();

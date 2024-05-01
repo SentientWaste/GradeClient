@@ -4,6 +4,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.MathHelper;
 
+
 public class RealmsSliderButton extends RealmsButton
 {
     public float value;
@@ -24,7 +25,7 @@ public class RealmsSliderButton extends RealmsButton
         this.minValue = p_i1057_7_;
         this.maxValue = p_i1057_8_;
         this.value = this.toPct((float)p_i1057_6_);
-        this.getProxy().displayString = this.getMessage();
+        this.getProxy().i = this.getMessage();
     }
 
     public String getMessage()

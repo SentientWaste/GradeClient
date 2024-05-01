@@ -29,7 +29,6 @@ import net.minecraft.world.storage.WorldInfo;
 import org.apache.commons.io.Charsets;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.lwjgl.Sys;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL20;
 import org.lwjgl.opengl.GLContext;
@@ -560,7 +559,7 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback
 //            this.drawString(this.fontRendererObj, this.openGLWarning1, this.field_92022_t, this.field_92021_u, -1);
 //            this.drawString(this.fontRendererObj, this.openGLWarning2, (this.width - this.field_92024_r) / 2, ((GuiButton)this.buttonList.get(0)).yPosition - 12, -1);
 //        }
-        GLSL glsl = new GLSL("/shaders/noise");
+        GLSL glsl = new GLSL("/resource/Client/shaders/noise");
         GL20.glUseProgram(glsl.program);
         GL20.glUniform1f(GL20.glGetUniformLocation(glsl.program, "time"), (System.currentTimeMillis() - start) / 1000f);
         GL20.glUniform2f(GL20.glGetUniformLocation(glsl.program, "resolution"), width , height);

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import Client.Client;
 import Client.module.Module;
+import Client.util.Render.RenderUtil;
 import Client.values.Booleans;
 import Client.values.Mode;
 import Client.values.Numbers;
@@ -84,6 +85,7 @@ public class ModuleButton {
 		 */
 		int textcolor = 0xffafafaf;
 		if (mod.isEnabled()) {
+			//功能启用后按钮的显示
 			Gui.drawRect(x - 2, y, x + width + 2, y + height + 1, color);
 			textcolor = 0xffefefef;
 		}
@@ -92,6 +94,7 @@ public class ModuleButton {
 		 * Ist die Maus �ber dem Element, wenn ja dann soll der Button sich anders f�rben
 		 */
 		if (isHovered(mouseX, mouseY)) {
+			//触碰到按钮的显示
 			Gui.drawRect(x - 2, y, x + width + 2, y + height + 1, 0x55111111);
 		}
 		

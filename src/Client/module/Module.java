@@ -2,12 +2,16 @@ package Client.module;
 
 import Client.event.EventManager;
 import Client.values.Value;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.client.Minecraft;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Module {
+@Getter @Setter @AllArgsConstructor
+public class Module{
     private String name;
     private int key;
     private final Category category;
@@ -52,6 +56,10 @@ public class Module {
             EventManager.instance.unregister(this);
             this.onDisable();
         }
+    }
+
+    public void toggle(){
+        this.setEnabled(!enabled);
     }
 
     public void onEnable() {

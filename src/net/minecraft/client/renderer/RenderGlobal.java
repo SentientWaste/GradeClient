@@ -225,7 +225,7 @@ public class RenderGlobal implements IWorldAccess, IResourceManagerReloadListene
                 ShaderLinkHelper.setNewStaticShaderLinkHelper();
             }
 
-            ResourceLocation resourcelocation = new ResourceLocation("shaders/post/entity_outline.json");
+            ResourceLocation resourcelocation = new ResourceLocation("resource/Client/shaders/post/entity_outline.json");
 
             try
             {

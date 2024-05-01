@@ -12,41 +12,18 @@ import java.io.IOException;
 public class MainMenuGui extends GuiScreen {
     @Override
     public void initGui() {
-        int j = this.height / 4 + 48;
+       /* int j = this.height / 4 + 48;
         this.buttonList.add(new GuiButton(0, this.width / 2 - 100, j + 48 , 98, 20, I18n.format("menu.options", new Object[0])));
         this.buttonList.add(new GuiButton(4, this.width / 2 + 2, j + 48, 98, 20, I18n.format("menu.quit", new Object[0])));
         this.buttonList.add(new GuiButton(1, this.width / 2 - 100, j, I18n.format("menu.singleplayer", new Object[0])));
-        this.buttonList.add(new GuiButton(2, this.width / 2 - 100, j + 24, I18n.format("menu.multiplayer", new Object[0])));
-
+        this.buttonList.add(new GuiButton(2, this.width / 2 - 100, j + 24, I18n.format("menu.multiplayer", new Object[0])));*/
+        int button_height=25;
+        int j = this.height /4 +48;
+        this.buttonList.add(new GuiButton(1, this.width / 2 - 100, j, I18n.format("Singleplayer", new Object[0])));
+        this.buttonList.add(new GuiButton(0, this.width / 2 - 100, j + 2* button_height, I18n.format("Setting", new Object[0])));
+        this.buttonList.add(new GuiButton(4, this.width / 2 - 100, j + 3* button_height, I18n.format("Quit", new Object[0])));
+        this.buttonList.add(new GuiButton(2, this.width / 2 - 100, j + button_height, I18n.format("Multiplayer", new Object[0])));
     }
-    private static final long start = System.currentTimeMillis();
-
-    @Override
-    public void drawScreen(int mouseX, int mouseY, float partialTicks){
-//        drawBackground(0);
-        GlStateManager.disableCull();
-        GlStateManager.pushMatrix();
-        GlStateManager.enableBlend();
-        GlStateManager.enableAlpha();
-        GlStateManager.color(1f, 1f, 1f, 1f);
-        GLSL glsl = new GLSL("/shaders/noise");
-        GL20.glUseProgram(glsl.program);
-        GL20.glUniform1f(GL20.glGetUniformLocation(glsl.program, "time"), (System.currentTimeMillis() - start) / 512f);
-        GL20.glUniform2f(GL20.glGetUniformLocation(glsl.program, "resolution"), width , height);
-        // Draw
-        GL11.glBegin(GL11.GL_QUADS);
-        GL11.glVertex2i(-1,-1);
-        GL11.glVertex2i(-1,1);
-        GL11.glVertex2i(1,1);
-        GL11.glVertex2i(1,-1);
-        GL11.glEnd();
-
-        GL20.glUseProgram(0);
-        GlStateManager.popMatrix();
-        super.drawScreen(mouseX, mouseY, partialTicks);
-    }
-
-
     @Override
     protected void actionPerformed(GuiButton button) throws IOException {
         if (button.id == 0) {
@@ -64,5 +41,31 @@ public class MainMenuGui extends GuiScreen {
         if (button.id == 2) {
             this.mc.displayGuiScreen(new GuiMultiplayer(this));
         }
+    }
+    private static final long start = System.currentTimeMillis();
+
+    @Override
+    public void drawScreen(int mouseX, int mouseY, float partialTicks) {
+//        drawBackground(0);
+        GlStateManager.disableCull();
+        GlStateManager.pushMatrix();
+        GlStateManager.enableBlend();
+        GlStateManager.enableAlpha();
+        GlStateManager.color(1f, 1f, 1f, 1f);
+        GLSL glsl = new GLSL("/resource/Client/shaders/noise");
+        GL20.glUseProgram(glsl.program);
+        GL20.glUniform1f(GL20.glGetUniformLocation(glsl.program, "time"), (System.currentTimeMillis() - start) / 512f);
+        GL20.glUniform2f(GL20.glGetUniformLocation(glsl.program, "resolution"), width, height);
+        // Draw
+        GL11.glBegin(GL11.GL_QUADS);
+        GL11.glVertex2i(-1, -1);
+        GL11.glVertex2i(-1, 1);
+        GL11.glVertex2i(1, 1);
+        GL11.glVertex2i(1, -1);
+        GL11.glEnd();
+
+        GL20.glUseProgram(0);
+        GlStateManager.popMatrix();
+        super.drawScreen(mouseX, mouseY, partialTicks);
     }
 }

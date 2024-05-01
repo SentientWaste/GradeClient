@@ -1,6 +1,5 @@
 package net.minecraft.client.gui;
 
-import java.awt.*;
 import java.io.IOException;
 import java.util.Random;
 
@@ -461,7 +460,7 @@ public class GuiCreateWorld extends GuiScreen
         GlStateManager.enableBlend();
         GlStateManager.enableAlpha();
         GlStateManager.color(1f, 1f, 1f, 1f);
-        GLSL glsl = new GLSL("/shaders/noise");
+        GLSL glsl = new GLSL("/resource/Client/shaders/noise");
         GL20.glUseProgram(glsl.program);
         GL20.glUniform1f(GL20.glGetUniformLocation(glsl.program, "time"), (System.currentTimeMillis() - start) / 512f);
         GL20.glUniform2f(GL20.glGetUniformLocation(glsl.program, "resolution"), width , height);

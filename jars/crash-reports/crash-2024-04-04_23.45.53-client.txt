@@ -1,0 +1,63 @@
+---- Minecraft Crash Report ----
+// Daisy, daisy...
+
+Time: 24-4-4 下午11:45
+Description: Updating screen events
+
+java.lang.NullPointerException: Updating screen events
+	at net.minecraft.client.gui.GuiIngameMenu.actionPerformed(GuiIngameMenu.java:85)
+	at net.minecraft.client.gui.GuiScreen.mouseClicked(GuiScreen.java:501)
+	at net.minecraft.client.gui.GuiScreen.handleMouseInput(GuiScreen.java:597)
+	at net.minecraft.client.gui.GuiScreen.handleInput(GuiScreen.java:566)
+	at net.minecraft.client.Minecraft.runTick(Minecraft.java:1786)
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1111)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:421)
+	at net.minecraft.client.main.Main.main(Main.java:114)
+	at Start.main(Start.java:15)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Stacktrace:
+	at net.minecraft.client.gui.GuiIngameMenu.actionPerformed(GuiIngameMenu.java:85)
+	at net.minecraft.client.gui.GuiScreen.mouseClicked(GuiScreen.java:501)
+	at net.minecraft.client.gui.GuiScreen.handleMouseInput(GuiScreen.java:597)
+	at net.minecraft.client.gui.GuiScreen.handleInput(GuiScreen.java:566)
+
+-- Affected screen --
+Details:
+	Screen name: net.minecraft.client.gui.GuiShareToLan
+Stacktrace:
+	at net.minecraft.client.Minecraft.runTick(Minecraft.java:1786)
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1111)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:421)
+	at net.minecraft.client.main.Main.main(Main.java:114)
+	at Start.main(Start.java:15)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.8.8
+	Operating System: Windows 11 (x86) version 10.0
+	Java Version: 1.8.0_401, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) Client VM (mixed mode, sharing), Oracle Corporation
+	Memory: 85581488 bytes (81 MB) / 259522560 bytes (247 MB) up to 259522560 bytes (247 MB)
+	JVM Flags: 0 total; 
+	IntCache: cache: 1, tcache: 1, allocated: 12, tallocated: 98
+	Launched Version: mcp
+	LWJGL: 2.9.4
+	OpenGL: NVIDIA GeForce RTX 4090/PCIe/SSE2 GL version 4.6.0 NVIDIA 551.52, NVIDIA Corporation
+	GL Caps: Using GL 1.3 multitexturing.
+Using GL 1.3 texture combiners.
+Using framebuffer objects because OpenGL 3.0 is supported and separate blending is supported.
+Shaders are available because OpenGL 2.1 is supported.
+VBOs are available because OpenGL 1.5 is supported.
+
+	Using VBOs: No
+	Is Modded: Very likely; Jar signature invalidated
+	Type: Client (map_client.txt)
+	Resource Packs: !          §3StormFault §7[§f16x§7] §8.zip, !    §bNico§3Fruit §f[16x].zip, - §bSimple §7Default§r (1.8)§0.zip, 字体.zip
+	Current Language: 简体中文 (中国)
+	Profiler Position: N/A (disabled)
+	CPU: 32x Intel(R) Core(TM) i9-14900K

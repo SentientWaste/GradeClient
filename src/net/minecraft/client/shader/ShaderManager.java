@@ -49,7 +49,7 @@ public class ShaderManager
     public ShaderManager(IResourceManager resourceManager, String programName) throws JsonException, IOException
     {
         JsonParser jsonparser = new JsonParser();
-        ResourceLocation resourcelocation = new ResourceLocation("shaders/program/" + programName + ".json");
+        ResourceLocation resourcelocation = new ResourceLocation("resource/Client/shaders/program/" + programName + ".json");
         this.programFilename = programName;
         InputStream inputstream = null;
 

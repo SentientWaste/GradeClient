@@ -1,6 +1,6 @@
 invertYMouse:false
-mouseSensitivity:0.5
-fov:1.0
+mouseSensitivity:0.6549296
+fov:0.375
 gamma:0.0
 saturation:0.0
 renderDistance:8
@@ -10,14 +10,14 @@ bobView:true
 anaglyph3d:false
 maxFps:260
 fboEnable:true
-difficulty:3
+difficulty:2
 fancyGraphics:false
 ao:1
 renderClouds:fast
-resourcePacks:["新字体.zip"]
-incompatibleResourcePacks:["新字体.zip"]
+resourcePacks:[]
+incompatibleResourcePacks:[]
 lastServer:
-lang:en_GB
+lang:en_US
 chatVisibility:0
 chatColors:true
 chatLinks:true
@@ -51,7 +51,7 @@ streamPreferredServer:
 streamChatEnabled:0
 streamChatUserFilter:0
 streamMicToggleBehavior:0
-forceUnicodeFont:false
+forceUnicodeFont:true
 allowBlockAlternatives:true
 reducedDebugInfo:false
 useNativeTransport:true
@@ -64,7 +64,7 @@ key_key.back:31
 key_key.right:32
 key_key.jump:57
 key_key.sneak:42
-key_key.sprint:19
+key_key.sprint:29
 key_key.drop:16
 key_key.inventory:18
 key_key.chat:20

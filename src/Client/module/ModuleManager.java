@@ -5,9 +5,7 @@ import Client.event.events.EventKey;
 import Client.module.modules.combat.*;
 import Client.module.modules.movement.*;
 import Client.module.modules.player.*;
-import Client.module.modules.render.ClickGUI;
-import Client.module.modules.render.FreeCam;
-import Client.module.modules.render.HUD;
+import Client.module.modules.render.*;
 import Client.module.modules.world.Scaffold;
 
 import java.util.ArrayList;
@@ -29,9 +27,12 @@ public class ModuleManager {
 
         this.modules.add(new NoFall());
 
+        this.modules.add(new ClickGUIX());
         this.modules.add(new ClickGUI());
         this.modules.add(new FreeCam());
         this.modules.add(new HUD());
+        this.modules.add(new DisplayTarget());
+        this.modules.add(new ESP());
 
         this.modules.add(new Scaffold());
     }

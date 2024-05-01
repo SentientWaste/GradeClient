@@ -18,6 +18,7 @@ public class FreeCam extends Module {
 
     @Override
     public void onEnable() {
+        System.out.println("ModeManager : init");
         this.entity = new EntityOtherPlayerMP(mc.theWorld, new GameProfile(new UUID(250, 520), mc.thePlayer.getName()));
         entity.setPositionAndRotation(mc.thePlayer.posX, mc.thePlayer.posY, mc.thePlayer.posZ, mc.thePlayer.rotationYaw, mc.thePlayer.rotationPitch);
         mc.theWorld.addEntityToWorld(110, entity);

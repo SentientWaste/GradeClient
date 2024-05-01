@@ -1,5 +1,6 @@
 package Client;
 
+import GuiFile.ClickGui.ClickGui;
 import de.Hero.clickgui.ClickGUI;
 import Client.command.CommandManager;
 import Client.event.EventManager;
@@ -21,6 +22,7 @@ public class Client {
             VERSION = "Beta",
             AUTHOR = "XFREELY_";
 
+    public ClickGui cg;
     public ClickGUI clickgui;
 
     public static Client instance = new Client();
@@ -34,6 +36,7 @@ public class Client {
         this.moduleManager = new ModuleManager();
         this.commandManager.init();
         this.moduleManager.init();
+        this.cg = new ClickGui();
         this.clickgui = new ClickGUI();
         EventManager.instance.register(this.moduleManager, this.commandManager);
         set_title();

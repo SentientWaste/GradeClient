@@ -3,10 +3,13 @@ package de.Hero.clickgui;
 import java.awt.Color;
 import java.util.ArrayList;
 
+import Client.util.Render.RenderUtil;
+import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.Gui;
 import de.Hero.clickgui.elements.ModuleButton;
 import de.Hero.clickgui.util.ColorUtil;
 import de.Hero.clickgui.util.FontUtil;
+import net.minecraft.client.gui.GuiButton;
 
 /**
  *  Made by HeroCode
@@ -28,6 +31,7 @@ public class Panel {
 	public boolean visible;
 	public ArrayList<ModuleButton> Elements = new ArrayList<>();
 	public ClickGUI clickgui;
+	public GuiButton guiButton;
 
 	/*
 	 * Konstrukor
@@ -36,7 +40,7 @@ public class Panel {
 		this.title = ititle;
 		this.x = ix;
 		this.y = iy;
-		this.width = iwidth;
+		this.width = iwidth+5;
 		this.height = iheight;
 		this.extended = iextended;
 		this.dragging = false;
@@ -64,25 +68,26 @@ public class Panel {
 
 		Color temp = ColorUtil.getClickGUIColor().darker();
 		int outlineColor = new Color(temp.getRed(), temp.getGreen(), temp.getBlue(), 170).getRGB();
-
-		Gui.drawRect(x, y, x + width, y + height, 0xff121212);
-		Gui.drawRect(x - 2, y, x, y + height, outlineColor);
-		FontUtil.drawStringWithShadow(title, x + 2, y + height / 2 - FontUtil.getFontHeight() / 2, 0xffefefef);
+		RenderUtil.drawRoundedRect((int)x, (int)y, (int)x + (int)width, (int)y + (int)height, 3, 0xff121212);
+//		Gui.drawRect(x, y, x + width, y + height, 0xff121212);
+//		Gui.drawRect(x - 2, y, x, y + height, outlineColor);
+		FontUtil.drawStringWithShadow(title, x + 4, y + height / 2 - FontUtil.getFontHeight() / 2, 0xffefefef);
 
 
 		if (this.extended && !Elements.isEmpty()) {
 			double startY = y + height;
 			int epanelcolor = 0xff232323;
 			for (ModuleButton et : Elements) {
-				Gui.drawRect(x - 2, startY, x + width, startY + et.height + 1, outlineColor);
-				Gui.drawRect(x, startY, x + width, startY + et.height + 1, epanelcolor);
+				//按钮
+//				RenderUtil.drawRoundedRect(2,25,202,26, 3, RenderUtil.rainbow(50));
+
+				RenderUtil.drawRoundedRect((int)x, (int)startY, (int)x + (int)width, (int)startY + (int)et.height, 0, epanelcolor);
 				et.x = x + 2;
 				et.y = startY;
 				et.width = width - 4;
 				et.drawScreen(mouseX, mouseY, partialTicks);
 				startY += et.height + 1;
 			}
-			Gui.drawRect(x, startY + 1, x + width, startY + 1, epanelcolor);
 
 		}
 	}

@@ -6,6 +6,8 @@ import net.minecraft.client.renderer.vertex.VertexFormat;
 import net.minecraft.client.renderer.vertex.VertexFormatElement;
 import org.lwjgl.opengl.GL11;
 
+import static org.lwjgl.opengl.GL11.GL_TEXTURE_GEN_T;
+
 public class WorldVertexBufferUploader
 {
     @SuppressWarnings("incomplete-switch")
@@ -52,6 +54,7 @@ public class WorldVertexBufferUploader
             }
 
             GL11.glDrawArrays(p_181679_1_.getDrawMode(), 0, p_181679_1_.getVertexCount());
+
             int i1 = 0;
 
             for (int j1 = list.size(); i1 < j1; ++i1)

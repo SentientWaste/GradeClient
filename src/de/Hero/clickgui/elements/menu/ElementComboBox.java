@@ -2,6 +2,7 @@ package de.Hero.clickgui.elements.menu;
 
 import java.awt.Color;
 
+import Client.util.Render.RenderUtil;
 import Client.values.Mode;
 import Client.values.Value;
 import net.minecraft.client.Minecraft;
@@ -38,13 +39,13 @@ public class ElementComboBox extends Element {
 		/*
 		 * Die Box und Umrandung rendern
 		 */
+//		RenderUtil.drawRoundedRect((int)x, (int)y, (int)x + (int)width, (int)y + (int)height, 0, 0xff1a1a1a);
 		Gui.drawRect(x, y, x + width, y + height, 0xff1a1a1a);
-
 		FontUtil.drawTotalCenteredString(setstrg, x + width / 2, y + 15/2, 0xffffffff);
 		int clr1 = color;
 		int clr2 = temp.getRGB();
 
-		Gui.drawRect(x, y + 14, x + width, y + 15, 0x77000000);
+//		Gui.drawRect(x, y + 14, x + width, y + 15, 0x77000000);
 		if (comboextended) {
 			Gui.drawRect(x, y + 15, x + width, y + height, 0xaa121212);
 			double ay = y + 15;
@@ -57,7 +58,7 @@ public class ElementComboBox extends Element {
 				 * das Element in der ComboBox
 				 */
 				if (sld.equalsIgnoreCase(((Mode<?>) set).getValue())) {
-					Gui.drawRect(x, ay, x + 1.5, ay + FontUtil.getFontHeight() + 2, clr1);
+					Gui.drawRect(x, ay, x + 2, ay + FontUtil.getFontHeight() + 2, new Color(61, 255, 0, 255).getRGB());
 				}
 				/*
 				 * Wie bei mouseClicked 'is hovered', wenn ja dann markiere

@@ -17,6 +17,6 @@ public class ClickGUI extends Module {
 
     @Override
     public void onDisable() {
-        mc.displayGuiScreen(Client.instance.clickgui);
+        mc.displayGuiScreen(Client.instance.cg);
     }
 }
